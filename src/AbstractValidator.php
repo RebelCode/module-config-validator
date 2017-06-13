@@ -11,6 +11,19 @@ use Dhii\Validation\AbstractValidatorBase;
  */
 abstract class AbstractValidator extends AbstractValidatorBase
 {
+    /**
+     * Determines whether a string is a valid slug.
+     *
+     * The slug must be 1 or more characters long, and must start with an
+     * alphanumeric character, optionally followed by a combination of such
+     * chars and a hyphen. Lowercase only. Optionally can have a vendor
+     * prefix, i.e. `vendor/package-name`.
+     *
+     * @since [*next-version*]
+     *
+     * @param string $string The string to determine the validity of.
+     * @return bool True if string is a valid slug; false otherwise.
+     */
     protected function _isValidSlug($string)
     {
         $expr =
