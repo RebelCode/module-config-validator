@@ -11,7 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.3 | ^7.0"
+        "php": "^5.3 | ^7.0",
+        "dhii/validation-base": "dev-develop",
+        "rebelcode/module-config-interface": "dev-task/create-interface"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
