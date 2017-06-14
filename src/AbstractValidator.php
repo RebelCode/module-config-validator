@@ -60,6 +60,7 @@ abstract class AbstractValidator extends AbstractValidatorBase
      */
     protected function __($string, $args = array())
     {
+        $string = $this->_translate($string);
         array_unshift($args, $string);
         $result = call_user_func('sprintf', $args);
 
