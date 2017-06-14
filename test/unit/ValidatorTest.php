@@ -78,7 +78,7 @@ class ValidatorTest extends TestCase
             return;
         }
 
-        $this->assertTrue(false, 'Validation must have failed');
+        $this->assertTrue(false, 'Validation should have failed');
     }
 
     /**
@@ -100,7 +100,7 @@ class ValidatorTest extends TestCase
             return;
         }
 
-        $this->assertTrue(false, 'Validation must have failed');
+        $this->assertTrue(false, 'Validation should have failed');
     }
 
     /**
@@ -122,7 +122,34 @@ class ValidatorTest extends TestCase
             return;
         }
 
-        $this->assertTrue(false, 'Validation must have failed');
+        $this->assertTrue(false, 'Validation should have failed');
+    }
+
+    /**
+     * Tests that the validator can correctly determine wrong dependency keys format.
+     *
+     * @since [*next-version*]
+     */
+    public function testInvalidDependency()
+    {
+        $subject = $this->createInstance();
+        $config  =  array(
+            Cfg::K_KEY          => 'test/module',
+            Cfg::K_DEPENDENCIES => array(
+                '-invalid-'
+            )
+        );
+
+        try {
+            $subject->validate($config);
+        } catch (ValidationFailedException $e) {
+            $errors = $e->getValidationErrors();
+            $this->assertContainsRegex('/has an invalid dependency key/', $errors, 'Config format was not determined to be invalid');
+
+            return;
+        }
+
+        $this->assertTrue(false, 'Validation should have failed');
     }
 
     /**

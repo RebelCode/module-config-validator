@@ -36,6 +36,14 @@ class Validator extends AbstractValidator
             $errors[] = $this->__('The "%1$s" key does not contain a valid module slug', array(Cfg::K_KEY));
         }
 
+        if (isset($subject[Cfg::K_DEPENDENCIES]) && is_array($subject[Cfg::K_DEPENDENCIES])) {
+            foreach ($subject[Cfg::K_DEPENDENCIES] as $_dependency) {
+                if (!$this->_isValidSlug($_dependency)) {
+                    $errors[] = $this->__('Subject has an invalid dependency key "%1$s"', array($_dependency));
+                }
+            }
+        }
+
         return $errors;
     }
 
@@ -50,6 +58,7 @@ class Validator extends AbstractValidator
     {
         return array(
             Cfg::K_KEY,
+            Cfg::K_DEPENDENCIES
         );
     }
 }
