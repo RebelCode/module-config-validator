@@ -28,13 +28,13 @@ abstract class AbstractValidator extends AbstractValidatorBase
     {
         $expr =
     '!^'
-        . '[a-z0-9]+'    # Must start with any number of lowercase alphanumeric chars
-        . '(?:'          # Followed optionally by a hyphen and more lowercase alphanumeric chars
+        . '[a-z0-9]+'    // Must start with any number of lowercase alphanumeric chars
+        . '(?:'          // Followed optionally by a hyphen and more lowercase alphanumeric chars
             . '-'
             . '[a-z0-9]+'
         . ')*'
-        . '(?:'          # Optional module suffix of the same format
-            . '/'           # The vendor/module separator
+        . '(?:'          // Optional module suffix of the same format
+            . '/'           // The vendor/module separator
             . '[a-z\d]+'
             . '(?:'
                 . '-'
