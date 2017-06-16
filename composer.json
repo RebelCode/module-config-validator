@@ -13,7 +13,7 @@
     "require": {
         "php": "^5.3 | ^7.0",
         "dhii/validation-base": "dev-develop",
-        "rebelcode/module-config-interface": "dev-task/create-interface"
+        "rebelcode/module-config-interface": "dev-develop"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
