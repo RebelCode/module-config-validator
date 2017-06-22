@@ -58,7 +58,6 @@ class Validator extends AbstractValidator
     {
         return array(
             Cfg::K_KEY,
-            Cfg::K_DEPENDENCIES
         );
     }
 }
